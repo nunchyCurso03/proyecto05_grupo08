@@ -1,5 +1,7 @@
 package es.santander.ascender;
 
+import java.util.Random;
+
 public class Arreglo {
 
 
@@ -38,11 +40,26 @@ public class Arreglo {
           return menor;
 
       }
+      
+      // Creo un objeto de la clase random
 
+      Random aleatorio = new Random();
       
 
-      
+      public int [] obtenerNumerosRandom( int valor){
 
+        int[] arrAleatorio = new int[valor];
+
+        for (int i = 0; i <= valor; i ++){
+
+            arrAleatorio[i] = aleatorio.nextInt();
+
+        }
+
+        return arrAleatorio; 
+
+      }
+    
       }
 
 

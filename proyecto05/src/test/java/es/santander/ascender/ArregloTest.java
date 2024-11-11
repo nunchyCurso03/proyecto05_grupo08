@@ -36,4 +36,19 @@ public class ArregloTest {
 
     }
 
+    @Test 
+    public void testObtenerNumeroRandom(){
+
+        Arreglo al = new Arreglo();
+
+        int[] lista = al.obtenerNumerosRandom(5);
+
+        for( int elemento : lista){
+   
+            System.out.println(elemento + "");
+
+        }     
+    }
+     
+
 }
