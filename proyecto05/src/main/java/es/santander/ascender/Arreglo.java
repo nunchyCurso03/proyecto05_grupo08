@@ -38,4 +38,44 @@ public class Arreglo {
 
     return arrAleatorio;
   }
+
+  public int[] eliminarNumero(int[]origen, int numeroAEliminar) {
+    int cuentaApariciones = getCuentaApariciones(origen, numeroAEliminar);
+    int nuevoTamano = calcularTamano(origen, cuentaApariciones);
+
+    int destino[] = getDestinoDeTamaño(nuevoTamano);
+
+    copiarEntradasValidas(origen, numeroAEliminar, destino);
+
+    return destino;
+  }
+
+  private void copiarEntradasValidas(int[] origen, int numeroAEliminar, int[] destino) {
+    for(int i=0, j=0; i < origen.length; i++){
+      if (origen[i] != numeroAEliminar) {
+        destino[j] = origen[i];
+        j++;
+      }
+    }
+  }
+
+  private int calcularTamano(int[] origen, int cuentaApariciones) {
+    return origen.length - cuentaApariciones;
+  }
+
+  private int[] getDestinoDeTamaño(int tamano) {
+    return new int[tamano];
+  }
+
+  private int getCuentaApariciones(int[] origen, int numeroAEliminar) {
+    int cuentaApariciones = 0;
+    for(int i=0; i < origen.length; i++){
+      if (origen[i] == numeroAEliminar) {
+        cuentaApariciones++;
+      }
+    }
+    return cuentaApariciones;
+  }
+
+
 }
