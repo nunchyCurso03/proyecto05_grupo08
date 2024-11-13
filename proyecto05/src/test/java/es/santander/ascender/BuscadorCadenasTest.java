@@ -1,13 +1,14 @@
 package es.santander.ascender;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
 public class BuscadorCadenasTest {
 
     @Test
-    public void testLocalizarComunes() {
+    public void testLocalizarComunes() throws Exception {
         BuscadorCadenas cutBuscadorCadenas = new BuscadorCadenas();
         String[] primeraLista = new String[] {
             "Hola", "Adios", "Mitad"
@@ -22,4 +23,36 @@ public class BuscadorCadenasTest {
 
         assertArrayEquals(new String[]{"Hola", "Adios"}, duplicados);
     }
+
+
+    @Test
+    public void testLocalizarComunes_ConCadenaVacia() throws Exception {
+        BuscadorCadenas cutBuscadorCadenas = new BuscadorCadenas();
+        String[] primeraLista = new String[] {
+            "Hola", "Adios", "Mitad"
+        };
+
+        String[] segundaLista = new String[] {
+           
+        };
+
+
+        String[] duplicados = cutBuscadorCadenas.localizarComunes(primeraLista, segundaLista);
+
+        assertArrayEquals(new String[0], duplicados);
+    }    
+
+    @Test
+    public void testLocalizarComunes_ConCadenaNulo() {
+        BuscadorCadenas cutBuscadorCadenas = new BuscadorCadenas();
+        String[] primeraLista = new String[] {
+            "Hola", "Adios", "Mitad"
+        };
+
+        String[] segundaLista = null;
+
+        assertThrows(Exception.class, 
+            () -> cutBuscadorCadenas.localizarComunes(primeraLista, segundaLista));
+    }    
+
 }
