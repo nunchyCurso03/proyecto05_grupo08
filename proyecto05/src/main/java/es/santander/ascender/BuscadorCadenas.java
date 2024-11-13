@@ -36,11 +36,28 @@ public class BuscadorCadenas {
         for (int i = 0; i < primeraLista.length; i++) {
             for (int j = 0; j < segundaLista.length; j++) {
                 if ( primeraLista[i].equals(segundaLista[j]) ) {
-                    resultado[cuentosRepetidosPorAhora] = primeraLista[i];
-                    cuentosRepetidosPorAhora++;
-                }
-            }
-        }
-        return resultado;
-    }
-}
+                      // Verificar si el elemento ya está en el array resultado
+                      boolean yaExiste = false;
+                      for (int k = 0; k < cuentosRepetidosPorAhora; k++) {
+                          if (resultado[k].equals(primeraLista[i])) {
+                              yaExiste = true;
+                              break;
+                          }
+                      }
+                      
+                      // Si no existe, agregar al array
+                      if (!yaExiste) {
+                          resultado[cuentosRepetidosPorAhora] = primeraLista[i];
+                          cuentosRepetidosPorAhora++;
+                      }
+                  }
+              }
+          }
+  
+          // Redimensionar el array para ajustarse al número de elementos únicos encontrados
+          String[] resultadoFinal = new String[cuentosRepetidosPorAhora];
+          System.arraycopy(resultado, 0, resultadoFinal, 0, cuentosRepetidosPorAhora);
+  
+          return resultadoFinal;
+      }
+  }

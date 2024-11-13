@@ -72,7 +72,7 @@ public class BuscadorCadenasTest {
         assertArrayEquals(new String[]{"Hola", "Adios"}, duplicados);
     }
 
-    @Disabled
+    //@Disabled
     @Test
     public void testLocalizarComunes_ListasConValoresRepetidosEnUnaLista() throws Exception {
         BuscadorCadenas cutBuscadorCadenas = new BuscadorCadenas();
@@ -86,7 +86,7 @@ public class BuscadorCadenasTest {
 
         String[] duplicados = cutBuscadorCadenas.localizarComunes(primeraLista, segundaLista);
 
-        assertArrayEquals(new String[]{"Hola", "Adios"}, duplicados);
+        assertArrayEquals(new String[]{"Hola",  "Adios"}, duplicados);
     }
 
 }
