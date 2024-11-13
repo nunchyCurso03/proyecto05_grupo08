@@ -67,10 +67,10 @@ public class Arreglo {
     return new int[tamano];
   }
 
-  private int getCuentaApariciones(int[] origen, int numeroAEliminar) {
+  private int getCuentaApariciones(int[] origen, int numeroABuscar) {
     int cuentaApariciones = 0;
     for(int i=0; i < origen.length; i++){
-      if (origen[i] == numeroAEliminar) {
+      if (origen[i] == numeroABuscar) {
         cuentaApariciones++;
       }
     }
